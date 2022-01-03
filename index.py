@@ -1,9 +1,15 @@
 #!/Users/jhw/opt/anaconda3/bin/python3
 print("content-type:text/html; charset=UTF-8\n")
-
-
 print()
-import cgi
+
+import cgi, os
+
+files = os.listdir("data")
+listStr = ""
+for item in files:
+    listStr = listStr + '<li><a href="index.py?id={Name}">{Name}</a></li>'.format(Name=item)
+
+
 form = cgi.FieldStorage()
 if "id" in form:
     pageId = form.getvalue("id")
@@ -57,12 +63,9 @@ print("""<!doctype html>
 <body>
   <h1><a href="index.py">WEB</a></h1>
   <ol>
-    <li><a href="index.py?id=HTML">HTML</a></li>
-    <li><a href="index.py?id=CSS">CSS</a></li>
-    <li><a href="index.py?id=JavaScript">JavaScript</a></li>
-    <li><a href="index.py?id=Python">Python</a></li>
+    {listStr}
   </ol>
   <h2>{title}</h2>
   <p>{desc}</p>
 </body>
-</html>""".format(title=pageId, desc = description))
+</html>""".format(title=pageId, desc = description, listStr=listStr))
