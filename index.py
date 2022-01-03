@@ -1,9 +1,12 @@
 #!/Users/jhw/opt/anaconda3/bin/python3
 print("content-type:text/html; charset=UTF-8\n")
 
+
+print()
 import cgi
 form = cgi.FieldStorage()
-pageId = form["id"].value
+pageId = form.getvalue("id")
+
 
 print("""<!doctype html>
 <html>
