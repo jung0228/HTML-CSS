@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>반짝이는 별들과 시</title>
+  <style>
+    body {
+      background-color: #000;
+      overflow: hidden;
+      font-family: 'Nanum Myeongjo', serif;
+      color: #fff;
+      text-align: center;
+    }
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: #fff;
+      animation: twinkling 1.5s linear infinite;
+    }
+    .constellation {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      animation: fade 5s linear infinite;
+    }
+    .constellation line {
+      stroke: #fff;
+      stroke-width: 1;
+      opacity: 0;
+      animation: lineOpacity 10s linear infinite;
+    }
+    .poem {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 24px;
+      text-shadow: 0 0 10px #fff;
+      opacity: 0;
+      animation: poemFade 60s linear infinite;
+      z-index: 1;
+    }
+    @keyframes twinkling {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.2;
+      }
+    }
+    @keyframes fade {
+      0%, 100% {
+        opacity: 0;
+      }
+      20%, 80% {
+        opacity: 1;
+      }
+    }
+    @keyframes lineOpacity {
+      0%, 20%, 80%, 100% {
+        opacity: 0;
+      }
+      30%, 70% {
+        opacity: 0.7;
+      }
+    }
+    @keyframes poemFade {
+      0%, 100% {
+        opacity: 0;
+      }
+      10%, 90% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="poem">
+    누구보다 밝게 빛날 별에게 🌟<br><br>
+    차갑고 어두운 세상은 밤하늘과 같고,<br>
+    그 하늘에는 빛나는 별들이 있다.<br><br>
+    찬란한 빛을 내는 별들에 가려져<br>
+    너의 빛은 아직 보이지 않을지도 모른다.<br><br>
+    하지만 기억하라,<br>
+    찬란하게 빛나는 별도 처음부터 빛나지 않았음을.<br><br>
+    아무것도 아닌 작은 원소들이 모여<br>
+    어느 순간 아름다운 빛을 냈다.<br><br>
+
+    지금 자신의 빛이 보이지 않는다 해도<br>
+    언젠가는 너도 스스로 빛을 낼 수 있을 것이다.<br><br>
+
+    그리고 그 빛은 밤하늘에서 가장 빛날 것이다.
+  </div>
+  
+  <script>
+    let stars = [];
+
+    function createStars() {
+      const starCount = 200;
+      for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.left = Math.random() * window.innerWidth + 'px';
+        star.style.top = Math.random() * window.innerHeight + 'px';
+        star.style.animationDelay = Math.random() * 1.5 + 's';
+        stars.push(star);
+        document.body.appendChild(star);
+      }
+    }
+
+    function createConstellations() {
+      const constellationCount = 10;
+      
+      for (let i = 0; i < constellationCount; i++) {
+        const constellation = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        constellation.classList.add('constellation');
+        
+        const selectedStars = [];
+        const starCount = 5;
+        
+        const firstStar = stars[Math.floor(Math.random() * stars.length)];
+        selectedStars.push(firstStar);
+        
+        for (let j = 1; j < starCount; j++) {
+          const closestStar = findClosestStar(selectedStars[j - 1], stars);
+          selectedStars.push(closestStar);
+        }
+        
+        for (let j = 0; j < starCount; j++) {
+          const nextIndex = (j + 1) % starCount;
+          const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          line.setAttribute('x1', selectedStars[j].offsetLeft + 1);
+          line.setAttribute('y1', selectedStars[j].offsetTop + 1);
+          line.setAttribute('x2', selectedStars[nextIndex].offsetLeft + 1);
+          line.setAttribute('y2', selectedStars[nextIndex].offsetTop + 1);
+          constellation.appendChild(line);
+        }
+        
+        document.body.appendChild(constellation);
+        setTimeout(() => constellation.remove(), 5000);
+      }
+    }
+
+    function findClosestStar(star, stars) {
+      let closestStar = null;
+      let closestDistance = Infinity;
+      
+      for (let i = 0; i < stars.length; i++) {
+        const distance = getDistance(star, stars[i]);
+        if (distance < closestDistance && stars[i] !== star) {
+          closestStar = stars[i];
+          closestDistance = distance;
+        }
+      }
+      
+      return closestStar;
+    }
+
+    function getDistance(star1, star2) {
+      const dx = star1.offsetLeft - star2.offsetLeft;
+      const dy = star1.offsetTop - star2.offsetTop;
+      return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    createStars();
+    setInterval(createConstellations, 4000);
+  </script>
+</body>
+</html>
