@@ -1,210 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="ko">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>정현우 프로필</title>
-    <link href="http://fonts.googleapis.com/css?family=Roboto:400,100" rel="stylesheet">
-    <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/main.css">
-  </head>
-
-  <body>
-    <!-- Main Container -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자기 소개 및 갤러리</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ece9e6, #ffffff);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            padding: 2em;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 20px;
+        }
+        h1 {
+            color: #5D5C61;
+            margin-bottom: 0.5em;
+        }
+        h2 {
+            color: #379683;
+            margin-top: 1.5em;
+            margin-bottom: 1em;
+        }
+        p {
+            margin: 0.5em 0;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1em;
+            border: 3px solid #5D5C61;
+        }
+        .social-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #5D5C61;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: #379683;
+        }
+        .specs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 1.5em;
+        }
+        .spec {
+            flex: 1 1 250px;
+            background: #f9f9f9;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .spec h3 {
+            margin-top: 0;
+            color: #5D5C61;
+        }
+        .spec p {
+            margin: 0.5em 0;
+            color: #666;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2em;
+        }
+        .gallery img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
     <div class="container">
-
-      <!-- Header -->
-      <header class="row">
-        <div class="col-6 profile-image-box">
-          <img src="./images/suu_emblem.jpeg" alt="Profile Logo Image" class="profile-image">
+        <img src="images/myface.jpeg" alt="프로필 사진" class="profile-pic">
+        <h1>안녕하세요, 저는 정현우입니다.</h1>
+        <p>저는 재미를 추구하는 개발자가 되고 싶습니다.</p>
+        <div class="social-links">
+            <a href="https://github.com/jung0228" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/%ED%98%84%EC%9A%B0-%EC%A0%95-b36714229/" target="_blank">LinkedIn</a>
+            <a href="https://www.instagram.com/junghw3333/" target="_blank">InstaGram</a>
+            <a href="https://jung0228.tistory.com/" target="_blank">Tistory</a>
         </div>
-
-        <div class="col-6 profile-title">
-          <h1 class="name-title">정현우</h1>
-          <h4 class="name-title">숭실대 AI융합학부</h4>
-        </div>
-      </header>
-
-      <hr>
-
-      <!-- 본문 내용 -->
-      <section>
-        <!-- Main Image -->
-        <div class="row">
-          <div class="main-image col-12 center-text ">
-            <img src="./images/soongsil.jpeg"
-                srcset="./images/soongsil.jpeg 400w,
-                        ./images/soongsil.jpeg 600w,
-                        ./images/soongsil.jpeg 800w"
-                sizes="100vw"
-                alt="main image">
-            <div class="main-overlay center-text ">
-              <p class="main-overlay-text"><br/>Soongsil<br/>숭실대 AI융합학부</p>
+        <h2>나의 스펙</h2>
+        <div class="specs">
+            <div class="spec">
+                <h3>학력</h3>
+                <p>대학교: 숭실대학교</p>
+                <p>전공: AI융합학부</p>
+                <p>입학년도: 2021</p>
+                <p>현재 학기: 4학년 1학기</p>
+                <p>평점: 4.32/4.5</p>
             </div>
-          </div>
-        </div>
-
-        <!-- About Me -->
-        <section class="row">
-          <div class="col-12 feature-title">
-            <h2>About Me</h2>
-          </div>
-
-          <div class="row about">
-            <div class="col-4 about-flex">
-              <div class="about-profile center-text">
-<!--                 <img src="./images/myface.jpeg" alt="About Profile Image" class="about-image"> -->
-              </div>
+            <div class="spec">
+                <h3>경력</h3>
+                <p>2023년 3월 - 2024년 4월: <br> 자대 학부연구생 (박건우 교수님)</p>
             </div>
-
-            <div class="col-8 about-flex">
-              <p class="about-text">
-                안녕하세요, 저는 숭실대 AI융합학부에 재학 중인 정현우입니다. 저는 과제를 하기 위해서 사이트를 만들고 있습니다.
-                <br /><br/>
-                저의 MBTI는 ESTJ 입니다. 저는 2021년에 숭실대에 들어와서 현재 2학년 2학기를 다니고 있습니다.
-                저는 방학에 박건우 교수님 연구실에서 학부연구실 인턴을 했습니다.
-                <br/><br/>
-                저는 앞으로 인공지능 개발자가 되고 싶습니다. 저는 앞으로 석사를 할 예정입니다.
-              </p>
+            <div class="spec">
+                <h3>수상 내역</h3>
+                <p>2022년:<br>숭실대학교 알고리즘 대회 우수상</p>
+                <p>2023년:<br>KSC 2023 학회 우수논문상</p>
             </div>
-          </div>
-        </section>
-
-        <!-- Featured Works -->
-        <div class="row">
-          <div class="col-12 feature-title">
-            <h2>Featured Work</h2>
-          </div>
-
-          <!-- Each Portfolio Section -->
-          <div class="row">
-
-            <!-- Work 1 -->
-            <section class="col-4 center-text work">
-              <div class="each-work">
-                <a href="art.html">
-                  <img src="./images/page1.jpeg" alt="work image 1" class="left">
-                  <div class="work-overlay">
-                    <h2>유화</h2>
-                    <p>개인 취미</p>
-                  </div>
-                </a>
-              </div>
-
-              <div class="work-detail">
-                <h3 class="work-title work-side">취미</h3>
-                <a href="art.html" class="work-repo">내 작품을 보고 싶다면 클릭</a>
-              </div>
-            </section>
-
-            <!-- Work 2 -->
-            <section class="col-4 center-text work">
-              <div class="each-work">
-                <a href="nlp.html">
-                  <img src="./images/page2.png" alt="work image 2">
-                  <div class="work-overlay">
-                    <h2>자연어 처리</h2>
-                    <p>정현우의 관심분야</p>
-                  </div>
-                </a>
-              </div>
-
-              <div class="work-detail">
-                <h3 class="work-title">연구분야</h3>
-                <a href="nlp.html" class="work-repo">자연어 처리에 대한 글</a>
-              </div>
-            </section>
-
-            <!-- Work 3 -->
-            <section class="col-4 center-text work">
-              <div class="each-work">
-                <a href="exercise.html">
-                  <img src="./images/page4.jpeg" alt="work image 3" class="right">
-                  <div class="work-overlay">
-                    <h2>운동</h2>
-                    <p></p>
-                  </div>
-                </a>
-              </div>
-
-              <div class="work-detail">
-                <h3 class="work-title work-side">운동</h3>
-                <a href="exercise.html" class="work-repo">나만의 건강관리법</a>
-              </div>
-            </section>
-
-        <!-- Featured Works -->
-        <div class="row">
-          <div class="col-12 feature-title">
-            <h2>my blog</h2>
-          </div>
-
-          <!-- Each Portfolio Section -->
-          <div class="row">
-
-            <!-- Work 1 -->
-            <section class="col-4 center-text work">
-              <div class="each-work">
-                <a href="https://jung0228.tistory.com/">
-                  <img src="./images/tistory.gif" alt="work image 1" class="left">
-                  <div class="work-overlay">
-                    <h2>tistory</h2>
-                    <p>정현우의 티스토리</p>
-                  </div>
-                </a>
-              </div>
-
-              <div class="work-detail">
-                <h3 class="work-title work-side">tistory</h3>
-                <a href="https://jung0228.tistory.com/" class="work-repo">https://jung0228.tistory.com/</a>
-              </div>
-            </section>
-
-            <!-- Work 2 -->
-            <section class="col-4 center-text work">
-              <div class="each-work">
-                <a href="https://velog.io/@jung0228">
-                  <img src="./images/velog.jpeg" alt="work image 2">
-                  <div class="work-overlay">
-                    <h2>velog</h2>
-                    <p>정현우의 벨로그</p>
-                  </div>
-                </a>
-              </div>
-
-              <div class="work-detail">
-                <h3 class="work-title">velog</h3>
-                <a href="https://velog.io/@jung0228" class="work-repo">https://velog.io/@jung0228</a>
-              </div>
-            </section>
-
-            <!-- Work 3 -->
-            <section class="col-4 center-text work">
-              <div class="each-work">
-                <a href="https://github.com/jung0228">
-                  <img src="./images/github.png" alt="work image 3" class="right">
-                  <div class="work-overlay">
-                    <h2>github</h2>
-                    <p>정현우 깃허브</p>
-                  </div>
-                </a>
-              </div>
-
-              <div class="work-detail">
-                <h3 class="work-title work-side">Github</h3>
-                <a href="https://github.com/jung0228" class="work-repo">https://github.com/jung0228</a>
-              </div>
-            </section>
-          </div>
+            <div class="spec">
+                <h3>논문 및 발표</h3>
+                <p>2023년 6월: KCC 2023 학회 논문 발표 및 포스터 제작</p>
+                <p>2023년 12월: KSC 2023 학회 논문 제출 및 구두 발표 <br>(논문 제목: "대규모 언어모델의 소수 검증 능력 평가")</p>
+                <p>2024년 8월: 정보과학회지 초청논문<br> (논문 제목: "대규모 언어모델의 소수 검증 능력 평가:ChatGPT와 PaLM2를 중심으로")</p>
+            </div>
         </div>
-      </section>
-
-      <!-- Footer -->
-      <footer>
-        <p>&copy;20213093 AI융합학부 정현우</p>
-      </footer>
-
+        <h2>갤러리</h2>
+        <div class="gallery">
+            <img src="images/painting1.jpeg" alt="작품 1">
+            <img src="images/painting2.jpeg" alt="작품 2">
+            <img src="images/painting3.jpeg" alt="작품 3">
+            <img src="images/painting4.jpeg" alt="작품 4">
+        </div>
     </div>
- 
-  </body>
+</body>
 </html>
